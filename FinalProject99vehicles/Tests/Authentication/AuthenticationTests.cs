@@ -19,16 +19,6 @@ namespace FinalProject99vehicles.Tests.Authentication
         const string recoverPassErrorMessageLabel = "//span[@class='hint-order']"; //Xpath
 
 
-       /* private static IEnumerable<TestCaseData> GetCredentialsDataCsv()
-        {
-            foreach (var values in Utils.GetGenericData("TestData\\authenticationData.csv"))
-            {
-                yield return new TestCaseData(values);
-            }
-        }
-         [Test, TestCaseSource("GetCredentialsDataCsv")]
-         public void AuthenticationPositive(string email, string password)
-      */
 
 
          [Test]
@@ -45,7 +35,7 @@ namespace FinalProject99vehicles.Tests.Authentication
             LoginPage lp = new LoginPage(_driver);
             Assert.IsTrue(lp.CheckLoginLabel("Contul tau"));
             lp.Login("radu.serban18@yahoo.ro", "123456");
-            //lp.Login(email, password);
+           
 
         }
 
