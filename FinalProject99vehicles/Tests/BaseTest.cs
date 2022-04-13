@@ -38,7 +38,7 @@ namespace FinalProject99vehicles.Tests
             _extent.AttachReporter(htmlReporter);
             _extent.AddSystemInfo("Host Name", Environment.MachineName);
             _extent.AddSystemInfo("Environment", "Test ENV");
-            _extent.AddSystemInfo("Username", "Alex G");
+            _extent.AddSystemInfo("Username", "Cosmin O");
             htmlReporter.LoadConfig(projectPath + "report-config.xml");
         }
 

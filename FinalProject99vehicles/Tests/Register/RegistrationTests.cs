@@ -83,5 +83,6 @@ namespace FinalProject99vehicles.Tests.Register
             Assert.IsTrue(existingEmailMessage.Contains("Adresa de email exista in baza de date. Va rugam sa va logati."));
         }
 
+
     }
 }

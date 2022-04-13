@@ -20,7 +20,9 @@ namespace FinalProject99vehicles.PageModels
         const string lichidDeFranaSectionSelector = "//*[@id='main-menu']/div/ul/li[1]/div/ul/li[6]/a/span"; //Xpath
         const string lichidDeFranaProductSelector = "//*[@id='category-page']/div/div[3]/div[2]/div/div[1]/div/div[1]/a/img"; //XPath
         const string addManyPiecesSelector = "//*[@id='qtyplus']"; //Xpath
-        
+        const string aditiviSectionSelector = "//*[@id='main-menu']/div/ul/li[1]/div/ul/li[2]/a/span"; //Xpath
+        const string aditivProductSelector = "//*[@id='category-page']/div/div[3]/div[2]/div/div[8]/div/div[1]/a/img"; //Xpath
+
 
         public AddToCartPage(IWebDriver driver) : base(driver)
         {
@@ -65,7 +67,27 @@ namespace FinalProject99vehicles.PageModels
 
         }
 
+        public void AddToCardAditiv()
+        {
+            var allProduct = driver.FindElement(By.XPath(allProductsSelector));
+            Actions actions = new Actions(driver);
+            actions.MoveToElement(allProduct).Build().Perform();
+            actions.MoveToElement(allProduct).Click();
+            var aditiviSection = driver.FindElement(By.XPath(aditiviSectionSelector));
+            aditiviSection.Click();
+            var aditivProduct = driver.FindElement(By.XPath(aditivProductSelector));
+            aditivProduct.Click();
+            var addMannyProductsButton = Utils.WaitForElement(driver, 10, By.XPath(addManyPiecesSelector));
+            for (int i = 0; i < 50; i++)
+            {
+                addMannyProductsButton.Click();
+            }
+            var addProductToCart = Utils.WaitForElement(driver, 10, By.XPath(addProductToCartSelector));
+            addProductToCart.Click();
+            var CartDetailsPopUp = Utils.WaitForElement(driver, 10, By.CssSelector(viewCartDetailsPopUpSelector));
+            CartDetailsPopUp.Click();
 
+        }
        
 
 

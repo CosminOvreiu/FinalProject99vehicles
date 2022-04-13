@@ -62,7 +62,26 @@ namespace FinalProject99vehicles.Tests.CartAdd
 
         }
 
+        [Test]
+        public void AddToCartAditivX()
+        {
+            testName = TestContext.CurrentContext.Test.Name;
+            _test = _extent.CreateTest(testName);
+            _driver.Navigate().GoToUrl(url);
+            MainPage mp = new MainPage(_driver);
+            mp.CloseOpenBanner();
+            mp.MoveToLoginPage();
 
+            LoginPage lp = new LoginPage(_driver);
+            lp.Login("radu.serban188@yahoo.ro", "123456");
+
+            AddToCartPage ap = new AddToCartPage(_driver);
+            ap.AddToCardAditiv();
+            var finalbuttonxxx = Utils.WaitForElement(_driver, 10, By.XPath(final)).Text;
+            Assert.IsTrue(finalbuttonxxx.Contains("FINALIZEAZA COMANDA"));
+
+
+        }
 
 
 
